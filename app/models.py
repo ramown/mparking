@@ -101,7 +101,6 @@ class Vaga(models.Model):
 		return "Vaga Livre [{}]".format(self.area) if self.ocupada==False else "{}: [{}]".format(self.area, self.veiculo)
 
 
-
 class LogDeEstacionamento(models.Model):
 	veiculo = models.ForeignKey(Veiculo, models.SET_NULL, blank=True, null=True)
 	area = models.ForeignKey(Area, models.SET_NULL, blank=True, null=True)
