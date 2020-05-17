@@ -13,4 +13,3 @@ class AreaController():
 		area.capacidade = area_capturada['capacidade']
 		area.save()
     
-
