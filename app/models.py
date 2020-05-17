@@ -7,6 +7,11 @@ class Area(models.Model):
     capacidade = models.IntegerField()
     ativo = models.BooleanField(default=True)
 
+    def gerar_vagas(self):
+    	for item in range(self.capacidade):
+    		vaga = Vaga()
+    		vaga.area = self
+    		vaga.save()
 
 class Evento(models.Model):
     nome = models.CharField(max_length=50)
