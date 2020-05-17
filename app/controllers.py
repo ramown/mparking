@@ -13,3 +13,10 @@ class AreaController():
 		area.capacidade = area_capturada['capacidade']
 		area.save()
     
+class VagaController():
+	def listar_vagas():
+		return Vaga.objects.all()
+
+	def contar_vagas_livres(area):
+		n_vagas = list(Vaga.objects.filter(area=area, ocupada=True))
+		return len(n_vagas)
