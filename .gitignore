@@ -1,6 +1,4 @@
 .gitignore
-*.pyc
-*~
-__pycache__
-myvenv
+__pycache__/
+*.py[cod]
 db.sqlite3
