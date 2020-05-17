@@ -5,7 +5,7 @@ from django.db import models
 '''
 class Area(models.Model):
     nome = models.CharField(max_length=30)
-    capacidade = models.IntegerField(max_length=3)
+    capacidade = models.IntegerField()
     ativo = models.BooleanField(default=True)
 
 
