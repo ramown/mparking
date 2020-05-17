@@ -98,7 +98,7 @@ class Vaga(models.Model):
 		self.save()
 
 	def __str__(self):
-		return "Vaga Livre []" if ocupada else "Vaga Ocupada"
+		return "Vaga Livre [{}]".format(self.area) if self.ocupada==False else "{}: [{}]".format(self.area, self.veiculo)
 
 
 
