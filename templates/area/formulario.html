@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+	{% include "model-header.html" %}
+</head>
+<body>
+	{% include "model-menu.html" %}
+	<div>
+	{% block content %}
+		<form action="{% url 'salvar_area' %}" method="POST">
+			{% csrf_token %}
+			<input type="text" name="nome"><br>
+			<input type="number" name="capacidade"><br>
+			<input type="checkbox" name="ativo"><br>
+			<input type="submit" name="salvar"><br>
+
+		</form>
+	{% endblock %}
+	<div>
+		{% include "model-footer.html" %}	
+	</div>
+
+	
+	
+</body>
+
+</html>

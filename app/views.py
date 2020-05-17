@@ -1,16 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from app.models import Area, Vaga
+from app.models import *
+from app.controllers import *
 
 # Create your views here.
 def index(request):
-    area = Area()
-    area.capacidade = 3
-    area.save()
+	dados = {'titulo':'Home Page'}
+	lista_de_areas = AreaController.listar_areas()
+	dados['areas'] = lista_de_areas
+	return render(request, 'home-page.html', dados)
 
-    area.gerar_vagas()
-    print(area.capacidade)
-    
+def nova_area(request):
+	return render(request, 'area/formulario.html')
 
-    return HttpResponse("OK")
+def salvar_area(request):
+	if request.POST:
+		area = {'nome': request.POST['nome'], 'capacidade': request.POST['capacidade']}
+		AreaController.salvar_area(area)
+		return redirect('home')
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+	{% include "model-header.html" %}
+</head>
+<body>
+	<style type="text/css">
+		.container {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			background-color: blue;
+			width: 100%;
+			height: 100%;
+		}
+		.box {
+
+		  	background: red;
+		 	color: #fff;
+		 	width: 100px;
+		 	height: 100px;
+		 	/*padding: 10px;*/
+		 	margin: 10px;
+		}
+	</style>
+	{% include "model-menu.html" %}
+	<div>
+	{% block content %}
+	<div style="width: 800px; height: 400px;">
+		<h2>Relação dos Estacionamentos</h2>
+		{% if areas %}
+			<div class="container">				
+				{% for area in areas %}
+				<div class="box">
+					<p align="center">{{ area.nome }}</p>
+					<hr>
+					<p align="center">0/{{ area.capacidade }}</p>
+				</div>
+			{% endfor %}	
+				<div class="box" align="center">
+				<!-- 	<a href="#"><img width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUY5oOrcKv3mO4-awBEbPC5G-vfBZG3y758makHrZRRrxY1J57QQ&s"> -->
+						<a href="{% url 'formulario_area' %}">
+							<img width="100%" src="{% static 'imgs/novo.png' %}" alt="My image"></a>
+						</a>
+				</div>
+			</div>
+
+
+		{% endif%}
+	</div>
+	{% endblock %}
+	<br><br>
+	<div>
+		{% include "model-footer.html" %}	
+	</div>
+
+	
+	
+</body>
+
+</html>
